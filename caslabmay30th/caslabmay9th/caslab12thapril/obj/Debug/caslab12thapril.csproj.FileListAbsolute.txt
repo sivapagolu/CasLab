@@ -742,3 +742,6 @@ D:\caslabjune291th\caslabjune28th\caslabjune26th\caslabjune24th\caslabjune13th\c
 D:\caslabjune291th\caslabjune28th\caslabjune26th\caslabjune24th\caslabjune13th\caslabmay9th\caslab12thapril\obj\Debug\caslab12thapril.csprojResolveAssemblyReference.cache
 D:\caslabjune291th\caslabjune28th\caslabjune26th\caslabjune24th\caslabjune13th\caslabmay9th\caslab12thapril\obj\Debug\caslab12thapril.dll
 D:\caslabjune291th\caslabjune28th\caslabjune26th\caslabjune24th\caslabjune13th\caslabmay9th\caslab12thapril\obj\Debug\caslab12thapril.pdb
+G:\DotNet\Products\CasLabGit\caslabmay30th\caslabmay9th\caslab12thapril\obj\Debug\caslab12thapril.csprojResolveAssemblyReference.cache
+G:\DotNet\Products\CasLabGit\caslabmay30th\caslabmay9th\caslab12thapril\obj\Debug\caslab12thapril.dll
+G:\DotNet\Products\CasLabGit\caslabmay30th\caslabmay9th\caslab12thapril\obj\Debug\caslab12thapril.pdb
