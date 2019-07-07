@@ -76,6 +76,15 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
+        /// username control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label username;
+        
+        /// <summary>
         /// homebutton control.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Button2 control.
+        /// Projectid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.DropDownList Projectid;
         
         /// <summary>
         /// taskid control.
@@ -121,13 +130,13 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.Label label10;
         
         /// <summary>
-        /// username control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label username;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
         /// TreeView1 control.
@@ -137,6 +146,15 @@ namespace caslab12thapril {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TreeView TreeView1;
+        
+        /// <summary>
+        /// TreeView2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TreeView TreeView2;
         
         /// <summary>
         /// Label1 control.

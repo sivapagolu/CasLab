@@ -28,10 +28,16 @@ namespace caslab12thapril
 
 
             clear();
-            NewtaskID();
+            
             empid.Text = (string)Session["EmpId"];
             
             empname.Text = (string)Session["UserName"];
+            string selectedProject = (string)Session["Name"];
+            bool isParent = (bool)Session["IsParent"];
+
+            
+            NewtaskID(isParent);
+
             //string EmpId = (string)Session["EmpId"];
             //SqlDataSource1.SelectParameters["EmpId"].DefaultValue = EmpId;
             id();
@@ -64,9 +70,16 @@ namespace caslab12thapril
                     Projectid.DataTextField = "Name";
                     Projectid.DataValueField = "Id";
                     Projectid.DataBind();
+                    if (isParent)
+                    {
+                        Projectid.Enabled = false;
+                        Projectid.Items.FindByText(selectedProject).Selected = true;
+                        Session["IsParent"] = false;
+                    }
                 }
                 catch (Exception ex)
                 {
+                    Session["IsParent"] = false;
                     throw ex;
                 }
                 finally
@@ -130,7 +143,7 @@ namespace caslab12thapril
             Textbox1.Text = i.ToString();
         }
 
-        private void NewtaskID()
+        private void NewtaskID(bool isFromParent)
         {
 
             string code = "CASLAB001-D";
@@ -141,6 +154,7 @@ namespace caslab12thapril
             con.Close();
             i++;
             Taskid.Text = code + i.ToString();
+            if(!isFromParent)
             Session["Name"] = Taskid.Text;
         }
 

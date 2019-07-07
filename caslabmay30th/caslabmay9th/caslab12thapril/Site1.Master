@@ -1,4 +1,4 @@
-﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site1.master.cs" Inherits="caslab12thapril.Site1" %>
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="caslab12thapril.Site1" %>
 
 <!DOCTYPE html>
 
@@ -50,6 +50,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+        
     <form id="form1" runat="server">
     <div>
      	<nav  class="navbar navbar-inverse">

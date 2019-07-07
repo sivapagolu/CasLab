@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="caslab12thapril.Login1" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  CodeBehind="Login.aspx.cs" Inherits="caslab12thapril.Login1" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 

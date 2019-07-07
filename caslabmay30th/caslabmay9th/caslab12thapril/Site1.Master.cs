@@ -218,8 +218,20 @@ namespace caslab12thapril
                 Label1.Text = "";
 
                 Label1.Text = TreeView1.SelectedNode.Text.ToString();
-                Session["Name"] = Label1.Text;
-                Response.Redirect("ViewPage2.aspx");
+                if (TreeView1.SelectedNode.Parent == null) {
+                    Session["Name"] = Label1.Text;
+                    Session["IsParent"] = true;
+                    Response.Redirect("CreateTask.aspx");
+                }
+                else
+                {
+                    Session["Name"] = Label1.Text;
+                    Session["IsParent"] = false;
+                    Response.Redirect("ViewPage2.aspx");
+                }
+
+                    
+                
             }
             catch { }
 

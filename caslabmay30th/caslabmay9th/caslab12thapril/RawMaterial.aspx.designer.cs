@@ -13,6 +13,24 @@ namespace caslab12thapril {
     public partial class RawMaterial {
         
         /// <summary>
+        /// Textbox16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Textbox16;
+        
+        /// <summary>
+        /// searchbutton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button searchbutton;
+        
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -238,6 +256,15 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.TextBox editquantaity;
         
         /// <summary>
+        /// editunits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox editunits;
+        
+        /// <summary>
         /// editdocumentname control.
         /// </summary>
         /// <remarks>
@@ -308,6 +335,15 @@ namespace caslab12thapril {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox quandelete;
+        
+        /// <summary>
+        /// unitsdelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox unitsdelete;
         
         /// <summary>
         /// documentdelete control.
@@ -382,6 +418,15 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.TextBox Textbox4;
         
         /// <summary>
+        /// txtintermsof control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtintermsof;
+        
+        /// <summary>
         /// Textbox5 control.
         /// </summary>
         /// <remarks>
@@ -454,6 +499,15 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.TextBox Textbox11;
         
         /// <summary>
+        /// intermsof control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox intermsof;
+        
+        /// <summary>
         /// Textbox12 control.
         /// </summary>
         /// <remarks>
@@ -517,6 +571,15 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
         
         /// <summary>
+        /// RequiredFieldValidator19 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator19;
+        
+        /// <summary>
         /// reasonforaction control.
         /// </summary>
         /// <remarks>
@@ -526,6 +589,15 @@ namespace caslab12thapril {
         protected global::System.Web.UI.WebControls.TextBox reasonforaction;
         
         /// <summary>
+        /// RequiredFieldValidator20 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator20;
+        
+        /// <summary>
         /// dis control.
         /// </summary>
         /// <remarks>
@@ -533,6 +605,24 @@ namespace caslab12thapril {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox dis;
+        
+        /// <summary>
+        /// RequiredFieldValidator21 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator21;
+        
+        /// <summary>
+        /// replacepopreqried control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button replacepopreqried;
         
         /// <summary>
         /// replacerawmaterail control.
@@ -578,6 +668,15 @@ namespace caslab12thapril {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button disablepopup;
+        
+        /// <summary>
+        /// replce control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button replce;
         
         /// <summary>
         /// popupdelete control.
