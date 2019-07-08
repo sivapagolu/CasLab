@@ -469,7 +469,7 @@ namespace caslab12thapril
             SqlCommand cmd = new SqlCommand("spx_Getmaterialtype");
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Filter", ViewState["Filter"].ToString());
-			cmd.Parameters.AddWithValue("@rawmaterialname",searchdata);
+			
             cmd.Connection = con;
             sda.SelectCommand = cmd;
             sda.Fill(dt);
