@@ -15,7 +15,7 @@
       </div>
     <div class="col-lg-4">
       
-        <asp:TextBox runat="server" ID="label10" class="form-control"></asp:TextBox>
+        <asp:TextBox runat="server" ID="label10" class="form-control" Enabled="false"></asp:TextBox>
   
       </div><br /><br />
           
