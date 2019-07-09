@@ -206,7 +206,7 @@ namespace caslab12thapril
 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                RadioButton radiobutton1 = (e.Row.FindControl("RadioButton1") as RadioButton);
+                CheckBox radiobutton1 = (e.Row.FindControl("RadioButton1") as CheckBox);
                 //RadioButton radiobutton1 = gvrow.FindControl("RadioButton1") as RadioButton;
 
                 if (e.Row.Cells[7].Text == "Deleted")
@@ -240,8 +240,8 @@ namespace caslab12thapril
             foreach (GridViewRow gvrow in GridView1.Rows)
             {
                 GridViewRow header = GridView1.HeaderRow;
-                RadioButton chck = gvrow.FindControl("RadioButton1") as RadioButton;
-                RadioButton chckall = GridView1.HeaderRow.FindControl("chkAll") as RadioButton;
+                CheckBox chck = gvrow.FindControl("RadioButton1") as CheckBox;
+                CheckBox chckall = GridView1.HeaderRow.FindControl("chkAll") as CheckBox;
                 if (chck != null && chck.Checked)
                 {
                     isselected = true;
@@ -261,7 +261,7 @@ namespace caslab12thapril
                 foreach (GridViewRow gvrow in GridView1.Rows)
                 {
                     grdxport.Rows[gvrow.RowIndex].Visible = false;
-                    RadioButton chck = gvrow.FindControl("RadioButton1") as RadioButton;
+                    CheckBox chck = gvrow.FindControl("RadioButton1") as CheckBox;
                     if (chck != null && chck.Checked)
                     {
                         grdxport.Rows[gvrow.RowIndex].Visible = true;
@@ -317,13 +317,39 @@ namespace caslab12thapril
             }
         }
 
+        protected void SelectAll_CheckedChanged(object sender,EventArgs e)
+        {
+            CheckBox btn = (CheckBox)sender;
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            GridView gv = (GridView)(gvr).NamingContainer;
+            CheckBox selectAll = (CheckBox)gv.HeaderRow.FindControl("chkAll");
+
+            foreach (GridViewRow row in gv.Rows)
+            {
+                if (selectAll.Checked && row.Cells[7].Text != "Deleted")
+                {
+
+                    CheckBox selected = row.FindControl("RadioButton1") as CheckBox;
+                    selected.Checked = true;
+                }
+                else
+                {
+                    CheckBox selected = row.FindControl("RadioButton1") as CheckBox;
+                    selected.Checked = false;
+                }
+            }
+        }
+
         protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
             //GridViewRow grow = GridView1.SelectedRow;
             //editcode.Text = grow.Cells[1].Text;
-            RadioButton btn = (RadioButton)sender;
+            CheckBox btn = (CheckBox)sender;
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            
+
+
             editcode.Text = gvr.Cells[1].Text;
             editname.Text = gvr.Cells[2].Text;
             editmaterial.Text = gvr.Cells[3].Text;

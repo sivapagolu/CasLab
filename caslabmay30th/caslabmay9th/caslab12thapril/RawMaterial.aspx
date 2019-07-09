@@ -44,12 +44,12 @@
                                                <asp:TemplateField HeaderText="Select">
 																					 <HeaderTemplate>SELECT ALL:
 <br/>
-  <asp:RadioButton ID="chkAll" runat="server" />
+  <asp:CheckBox ID="chkAll" runat="server" OnCheckedChanged="SelectAll_CheckedChanged"  AutoPostBack="true"/>
 
 </HeaderTemplate>
 <ItemTemplate>
 <%--<input name="RadioButton1" type="radio" value='<%# Eval("id") %>' onclick="javascript.myselection(this.id)" />--%>
-  <asp:RadioButton runat="server" ID="RadioButton1"  OnCheckedChanged="RadioButton1_CheckedChanged"  />
+  <asp:CheckBox runat="server" ID="RadioButton1"  OnCheckedChanged="RadioButton1_CheckedChanged"  AutoPostBack="true"/>
 </ItemTemplate>
 </asp:TemplateField>
                                                 <asp:BoundField DataField="rawmaterialcode" HeaderText="Raw Material Code" SortExpression="rawmaterialcode" />
