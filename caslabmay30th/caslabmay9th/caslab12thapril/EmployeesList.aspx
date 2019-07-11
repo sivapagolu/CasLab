@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeFile="EmployeesList.aspx.cs" Inherits="caslab12thapril.EmployeesList" %>
+﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeFile="EmployeesList.aspx.cs" Inherits="caslab12thapril.EmployeesList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -51,20 +51,23 @@
                               
                               <asp:TemplateField HeaderText="Reviewer">
                                   <EditItemTemplate>
-                                      <asp:Label ID="isreviewerlabel" Text='<%# Bind("IsReviewer") %>' runat="server" />
-                                       <asp:Radiobutton ID="reviewerlabel"  runat="server" />
+                                      
+                                       <%--<asp:CheckBox ID="reviewerlabel"  runat="server" OnCheckedChanged="reviewerlabel_CheckedChanged" />--%>
                                   </EditItemTemplate>
                                    <ItemTemplate>
-                                      <asp:Radiobutton ID="reviewerlabel"   Checked='<%# Eval("IsReviewer").ToString() == "false" ? false : true  %>' runat="server" />
+                                       <asp:Label ID="isreviewerlabel" Visible="false" Text='<%# Bind("IsReviewer") %>' runat="server" />
+                                      <%-- <asp:CheckBox ID="reviewerlabel"  runat="server" OnCheckedChanged="reviewerlabel_CheckedChanged"/>--%>
+                                      <asp:CheckBox ID="reviewerlabel"   Checked='<%# Eval("IsReviewer").ToString() == "false" ? false : true  %>' runat="server" />
                                   </ItemTemplate>
                               </asp:TemplateField>
                               <asp:TemplateField HeaderText="Approver">
                                   <EditItemTemplate>
                                       <asp:Label ID="isapproevrlabel" Text='<%# Bind("IsApprover") %>' runat="server" />
-                                      <asp:Radiobutton ID="approverlabel"    runat="server" />
+                                      <asp:CheckBox ID="approverlabel"    runat="server" />
                                   </EditItemTemplate>
                                    <ItemTemplate>
-                                      <asp:Radiobutton ID="approverlabel"    Checked='<%# Eval("IsApprover").ToString() == "false" ? false : true  %>'  runat="server" />
+                                       <%--<asp:CheckBox ID="approverlabel"    runat="server" />--%>
+                                      <asp:CheckBox ID="approverlabel"    Checked='<%# Eval("IsApprover").ToString() == "false" ? false : true  %>'  runat="server" />
                                   </ItemTemplate>
                               </asp:TemplateField>
                               <asp:TemplateField HeaderText="Position">

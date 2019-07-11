@@ -125,14 +125,39 @@ namespace caslab12thapril
                     {
 
                     }
+
+                    taskid.Text = Session["Name"] as String;
+                    label10.Text = taskid.Text;
+                    newreviewerdata.Text = (string)Session["Reviewer"];
+                    userdata.Text = (string)Session["UserName"];
                     con.Close();
+                    SqlCommand command = new SqlCommand("select TaskId from Inboxdetails where TaskId='" + label10.Text + "'  ", con);
+                    con.Open();
+                    Session["TaskId"] = command.ExecuteScalar();
+                    con.Close();
+                    taskstatus.Text = Convert.ToString(Session["TaskId"]);
+                    if (taskstatus.Text == label10.Text)
+                    {
+                        taskidlabel.Visible = false;
+                        label10.Visible = false;
+                        reviewerdata.Visible = false;
+                        submit.Visible = false;
+                        reviewer.Visible = false;
+                        distributor.Visible = false;
+                        list.Visible = false;
+                        approver.Visible = false;
+                        approverlabel.Visible = false;
+                        GridView1.Visible = true;
+                    }
+                    else
+                    {
+                        GridView1.Visible = false;
+                    } 
                 }
 
 
 
 
-                taskid.Text = Session["Name"] as String;
-                label10.Text = taskid.Text;
             }
             //bindtextvalues(Label10.Text);
 
@@ -140,6 +165,35 @@ namespace caslab12thapril
 
         }
 
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCell cell = e.Row.Cells[1];
+                if (cell.Text == "REJECTED")
+                {
+
+                    cell.ForeColor = System.Drawing.Color.Red;
+                }
+                else if (cell.Text == "ACCEPTED")
+                {
+
+                    cell.ForeColor = System.Drawing.Color.Green;
+                }
+                TableCell cellapprover = e.Row.Cells[2];
+                if (cellapprover.Text == "REJECTED")
+                {
+
+                    cellapprover.ForeColor = System.Drawing.Color.Red;
+                }
+                else if (cellapprover.Text == "ACCEPTED")
+                {
+
+                    cellapprover.ForeColor = System.Drawing.Color.Green;
+                }
+            }
+        }
         protected void reviewerdropdown()
         {
 
@@ -466,7 +520,7 @@ namespace caslab12thapril
 
             approverdata.Text = (string)Session["UserName"];
             taskid.Text = Session["Name"] as String;
-            SqlCommand status = new SqlCommand("update Inboxdetails set Approverstatus='REJECTED' , approvercomments =@approvercomments where Approver=@Approver and TaskId=@TaskId", con);
+            SqlCommand status = new SqlCommand("update Inboxdetails set Status='REJECTED' , approvercomments =@approvercomments where Approver=@Approver and TaskId=@TaskId", con);
             try
             {
                 con.Open();
@@ -531,62 +585,52 @@ namespace caslab12thapril
         {
             SqlConnection con = new SqlConnection(str);
             taskid.Text = Session["Name"] as String;
-            SqlCommand command = new SqlCommand("select TaskId from Inboxdetails where TaskId='" + label10.Text + "'  ", con);
-            con.Open();
-            Session["TaskId"] = command.ExecuteScalar();
-            con.Close();
-            taskstatus.Text = Convert.ToString(Session["TaskId"]);
-            //if (taskstatus.Text == label10.Text)
-            //{
-            //    string script1 = "alert(\"Already Submitted Please Check Your Status\")";
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "ServerControlScript", script1, true);
-            //}
-            //else
-            //{
-            //string filename = pdffile.PostedFile.FileName;
-            //pdffile.SaveAs(Server.MapPath("~/storepdf/" +  filename));
+            
+                //string filename = pdffile.PostedFile.FileName;
+                //pdffile.SaveAs(Server.MapPath("~/storepdf/" +  filename));
 
 
-            //string filename1 = Path.GetFileName(pdffile.PostedFile.FileName);
-            //string contentType = pdffile.PostedFile.ContentType;
-            //using (Stream fs = pdffile.PostedFile.InputStream)
-            //{
-            //    using (BinaryReader br = new BinaryReader(fs))
-            //    {
-            //        byte[] bytes = br.ReadBytes((Int32)fs.Length);
-            SqlCommand cmd = new SqlCommand("multiple", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            con.Open();
+                //string filename1 = Path.GetFileName(pdffile.PostedFile.FileName);
+                //string contentType = pdffile.PostedFile.ContentType;
+                //using (Stream fs = pdffile.PostedFile.InputStream)
+                //{
+                //    using (BinaryReader br = new BinaryReader(fs))
+                //    {
+                //        byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                SqlCommand cmd = new SqlCommand("multiple", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
 
-            if (distributor.Text.Contains(','))//checking for you are entered single value or multiple values  
-            {
-                string[] arryval = distributor.Text.Split(',');//split values with ‘,’  
-                int j = arryval.Length;
-                int i = 0;
-                for (i = 0; i < j; i++)
+                if (distributor.Text.Contains(','))//checking for you are entered single value or multiple values  
                 {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@EmployeeName", labeldata.Text);
-                    cmd.Parameters.AddWithValue("@Reviewer", reviewer.Text);
-                    cmd.Parameters.AddWithValue("@Approver", approver.Text);
-                    cmd.Parameters.AddWithValue("@TaskId", taskid.Text);
-                    cmd.Parameters.AddWithValue("@Reviewerstatus", "PENDING");
-                    cmd.Parameters.AddWithValue("@distributor", arryval[i]);
-                    cmd.Parameters.AddWithValue("@reviewercomments", "abc");
+                    string[] arryval = distributor.Text.Split(',');//split values with ‘,’  
+                    int j = arryval.Length;
+                    int i = 0;
+                    for (i = 0; i < j; i++)
+                    {
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@EmployeeName", labeldata.Text);
+                        cmd.Parameters.AddWithValue("@Reviewer", reviewer.Text);
+                        cmd.Parameters.AddWithValue("@Approver", approver.Text);
+                        cmd.Parameters.AddWithValue("@TaskId", taskid.Text);
+                        cmd.Parameters.AddWithValue("@Reviewerstatus", "PENDING");
+                        cmd.Parameters.AddWithValue("@distributor", arryval[i]);
+                        cmd.Parameters.AddWithValue("@reviewercomments", "abc");
 
 
-                    cmd.Parameters.AddWithValue("@Status", "PENDING");
-                    cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@Status", "PENDING");
+                        cmd.ExecuteNonQuery();
+                    }
+
                 }
 
-            }
-
-            insertaddemployee();
-            con.Close();
-            reset();
-            string script = "alert(\" Data Submitted Successfully\")";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "ServerControlScript", script, true);
-
+                insertaddemployee();
+                con.Close();
+                reset();
+                string script = "alert(\" Data Submitted Successfully\")";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ServerControlScript", script, true);
+                 Response.Redirect("WebForm1.aspx");
+            
         }
         protected void insertaddemployee()
         {

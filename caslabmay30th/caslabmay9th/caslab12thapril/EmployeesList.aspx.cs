@@ -141,16 +141,22 @@ namespace caslab12thapril
             {
                 Label Label1 = (e.Row.FindControl("isreviewerlabel") as Label);
                 Label label2 = (e.Row.FindControl("isapproevrlabel") as Label);
-                RadioButton radiobutton1 = (e.Row.FindControl("reviewerlabel") as RadioButton);
-                RadioButton radiobutton2 = (e.Row.FindControl("approverlabel") as RadioButton);
+                CheckBox radiobutton1 = (e.Row.FindControl("reviewerlabel") as CheckBox);
+                CheckBox radiobutton2 = (e.Row.FindControl("approverlabel") as CheckBox);
                 //RadioButton radiobutton1 = gvrow.FindControl("RadioButton1") as RadioButton;
 
-                //if (e.Row.Cells[5].Text == "YES")
-                //{
-                //    radiobutton1.Checked = true;
-                //    radiobutton2.Enabled = false;
-                    
-                //}
+                
+                if (Label1.Text == "true")
+                {
+                   
+                    radiobutton2.Enabled = true;
+
+                }
+                else
+                {
+                    radiobutton2.Enabled = false;
+                }
+              
                 //else if (label2.Text == "YES")
                 //{
                 //    radiobutton1.Enabled = true;
