@@ -143,9 +143,9 @@ namespace caslab12thapril
 
         protected void editpopup_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#listofrawmaterialedit').modal('show')", true);
-            GridView1.DataBind();
-            grid();
+            //ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#listofrawmaterialedit').modal('show')", true);
+            //GridView1.DataBind();
+            //grid();
             //foreach(GridViewRow grid in GridView1.Rows)
             //{ 
             //int id = GridView1.Rows.Count;

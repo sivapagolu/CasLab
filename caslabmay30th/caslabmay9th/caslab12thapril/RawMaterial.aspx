@@ -1,9 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="RawMaterial.aspx.cs" Inherits="caslab12thapril.RawMaterial" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+     <script type="text/javascript">
+         function Edit(edit) {
+             
 
-     
+             if ($("[id$=GridView1]").find("input[type=checkbox]:checked").length > 1) {
+                 
+                 $(this).attr('data-target', '');
+                 alert("cant edit more than one record at a time");
+                 return false; 
+             }else if ($("[id$=GridView1]").find("input[type=checkbox]:checked").length == 0) {
+
+                 $(this).attr('data-target', '');
+                 
+                 return false;
+             } else {
+                 debugger
+                 $(edit).attr('data-target', '#listofrawmaterialedit');
+                 $('#listofrawmaterialedit').modal('show');
+                 return true;
+             }
+             return false;
+         }
+        
+    </script>
      
     <div id="searchmaterail">
         <div class="row">
@@ -38,6 +62,8 @@
 
                                 	<div  class="table-responsive" style="width:1100px; height:300px; overflow:auto;" >
 <div >
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
                                         <asp:GridView ID="GridView1"   runat="server"  OnRowDataBound="OnRowDataBound" class="table table-striped table-bordered" AutoGenerateColumns="False" CellPadding="4"  ForeColor="#333333" GridLines="None"  >
                                             <AlternatingRowStyle BackColor="White" />
                                             <Columns>
@@ -89,6 +115,8 @@
                                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                         </asp:GridView>
+            </ContentTemplate>
+        </asp:UpdatePanel>
                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MatreyPharmaConnectionString %>" SelectCommand="SELECT [id], [rawmaterialcode], [rawmaterialname], [typeofmaterial], [quantity],[intermsof], [supplierinformation],[status] FROM [AddRawmaterial]"></asp:SqlDataSource>
                                         <br />
 																							</div>
@@ -903,13 +931,16 @@
                <!-- /.modal -->
 
                           
+<asp:UpdatePanel runat="server">
+    <ContentTemplate>
 
+    
           <div class="buttonexport" id="buttons">
                                  
                              <%--<asp:Button ID="Button2" runat="server" Text="Edit" class="fa fa-file-text" CausesValidation="false" OnClick="Button2_Click"  />--%>
 
              <%--   <a href="#" class="btn btn-add" data-toggle="modal" data-target="#edit"><i class="fa fa-file-text"></i> Edit </a> --%>
-               <asp:Button runat="server" ID="editpopup" class="btn btn-primary" ValidationGroup="buttons" Text="Edit" data-toggle="modal" OnClick="editpopup_Click" data-target="#listofrawmaterialedit" />
+               <asp:Button runat="server" ID="editpopup" class="btn btn-primary" ValidationGroup="buttons" Text="Edit" data-toggle="modal" OnClick="editpopup_Click" OnClientClick="return Edit(this);" data-target="" />
               <asp:Button runat="server" Text="Export" ID="exporttoexcel" class="btn btn-primary" OnClick="exporttoexcel_Click" ValidationGroup="buttons" CausesValidation="false" />
                              <%--  <a href="#" class="btn btn-add" data-toggle="modal" data-target="#"><i class="fa fa-file-text"></i> Export </a> --%>
                              <%--  <a href="#" class="btn btn-add" data-toggle="modal" data-target="#"><i class="fa fa-file-text"></i> Disable/Enable </a>--%> 
@@ -928,7 +959,8 @@
                                             <button type="button" class="btn btn-primary"  data-toggle="modal" data-dismiss="modal"  data-target="#addtask"><i class="fa fa-file-plus"></i> Add </button>
 								
                               </div>
-                     
+                     </ContentTemplate>
+</asp:UpdatePanel>
                      </div>
                   </div>
                </div>
